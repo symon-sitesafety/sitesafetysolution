@@ -146,13 +146,13 @@ export async function POST(req: NextRequest) {
 
     // --- Send via Resend ---
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { error } = await resend.emails.send({
-      from: "Site Safety Solutions <noreply@sitesafety-solutions.co.uk>",
-      to: "symon@sitesafety-solutions.co.uk",
-      replyTo: email!.trim(),
-      subject: `New Website Enquiry from ${name!.trim()}`,
-      html: htmlEmail,
-    });
+ const { error } = await resend.emails.send({
+  from: "Site Safety Solutions <noreply@send.sitesafety-solutions.co.uk>",
+  to: "symon@sitesafety-solutions.co.uk",
+  replyTo: email!.trim(),
+  subject: `New Website Enquiry from ${name!.trim()}`,
+  html: htmlEmail,
+});
 
     if (error) {
       console.error("Resend API error:", error);
